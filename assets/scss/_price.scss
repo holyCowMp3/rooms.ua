@@ -2,14 +2,14 @@
 
 
 /*===========================
-       09.PEICING css 
+       09.PEICING css
 ===========================*/
 
 
 .single-pricing{
     @include box-shadow (0px 0px 11px 0px rgba(154,154,154,0.16));
     padding: 25px 30px 30px;
-    
+
     & .pricing-title{
         & .title{
             font-size: 25px;
@@ -18,11 +18,17 @@
     }
     & .pricing-price{
         margin-top: 30px;
-        
+
         & .price{
             font-size: 35px;
             font-weight: 600;
             color: $heading-color;
+            line-height: 35px;
+        }
+        & .price-gold{
+            font-size: 35px;
+            font-weight: 600;
+            color: $gold-color;
             line-height: 35px;
         }
         & .text{
@@ -32,7 +38,7 @@
     }
     & .pricing-list{
         margin-top: 30px;
-        
+
         & .list{
             & li{
                 line-height: 39px;
@@ -43,7 +49,7 @@
         margin-top: 28px;
         & .main-btn{}
     }
-    
+
     &.pricing-active{
         position: relative;
         & .pricing-price{
@@ -52,11 +58,11 @@
             }
         }
     }
-    
+
     &.pricing-active{
         position: relative;
         z-index: 5;
-        
+
         & .pricing-shape{
             position: absolute;
             top: 0;
@@ -64,7 +70,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            
+
             & img{
                 width: 100%;
             }
