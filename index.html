@@ -487,7 +487,7 @@
                         </ul>
                     </div>
                     <div class="pricing-btn">
-                        <a class="main-btn main-btn-2" href="#">Замовити <strong>Базовий</strong></a>
+                        <a class="main-btn main-btn-2" data-toggle="modal" data-target="#lite" onclick="$('#order').val('Базовий')">Замовити <strong>Базовий</strong></a>
                     </div>
                 </div> <!-- single pricing -->
             </div>
@@ -513,7 +513,7 @@
                         </ul>
                     </div>
                     <div class="pricing-btn">
-                        <a class="main-btn" href="#">Замовити <strong>Стандарт</strong></a>
+                        <a class="main-btn" data-toggle="modal" data-target="#lite" onclick="$('#order').val('Стандарт')">Замовити <strong>Стандарт</strong></a>
                     </div>
                 </div> <!-- single pricing -->
             </div>
@@ -539,7 +539,7 @@
                         </ul>
                     </div>
                     <div class="pricing-btn">
-                        <a class="gold-btn" href="#">Замовити <strong>Преміум</strong></a>
+                        <a class="gold-btn" data-toggle="modal" data-target="#lite" onclick="$('#order').val('Преміум')">Замовити <strong>Преміум</strong></a>
                     </div>
                 </div> <!-- single pricing -->
             </div>
@@ -691,7 +691,45 @@
         </div> <!-- container -->
     </div> <!-- footer copyright -->
 </footer>
+<div class="modal fade" id="lite" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Замовлення підписки</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <form id="liteForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Як вас звати?</label>
+                            <input type="text" class="form-control" id="name" placeholder="Іван Іванов">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">Ваш номер телефону?</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="+380999787878">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputCity">В якому місті ви шукаєте житло?</label>
+                            <select id="inputCity" class="form-control">
+                                <option selected>Київ</option>
+                                <option>Львів</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="sendButton" class="main-btn"><strong>Замовити</strong></button>
+            </div>
 
+        </div>
+    </div>
+</div>
 <!--====== PART ENDS ======-->
 
 <!--====== BACK TOP TOP PART START ======-->
@@ -715,8 +753,32 @@
 <!--====== PART ENDS ======-->
 
 
+<input disabled id="order" hidden>
 <!--====== Jquery js ======-->
 <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script>
+
+    $("#sendButton").click(function() {
+        var obj = {
+            order:$("#order").val(), name : $("#name").val(), phone : $("#phone").val(), city: $("#inputCity option:checked").val()
+        }
+        $.ajax({
+            url: 'https://hook.integromat.com/916ja0owysdexb6qu0f86wsa4krkx9z7',
+            type: 'POST',
+            data: JSON.stringify(obj),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(msg) {
+                $("#modal-body").append("<div class=\"alert alert-success\">\n" +
+                    "  <strong>Ура!</strong> Ми відповімо Вам якомога швидше!\n" +
+                    "</div>")
+            }
+        });
+        //  <-----------
+        console.log( obj );
+    })
+</script>
 <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
 
 <!--====== Bootstrap js ======-->

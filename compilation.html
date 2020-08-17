@@ -118,6 +118,7 @@
 
 <!--====== ABOUT PART START ======-->
 
+
 <section id="about" class="about-area pt-70 pb-120">
     <div class="container">
         <div class="row align-items-center">
@@ -131,9 +132,12 @@
                 <div class="about-content mt-50 wow fadeInRightBig" data-wow-duration="1.3s" data-wow-delay="0.5s">
                     <div class="section-title">
                         <h3 class="title">РУМС створює персоналізовані підбори квартир 🏢</h3>
-                        <p class="text">Якщо коротко - це послуга створена для тих, хто хоче швидко вирішити питання пошуку житла.<br>
-                            Ми надаємо <strong>персонального помічника</strong>, <strong>таксі</strong> за наш рахунок, проводимо <strong>онлайн-перегляд</strong>, проводимо переговори, торгуємось за Вас.<br>
-                            В кінці <strong>перевіряємо документи</strong> власника та супроводжуємо у створенні договору.<br>
+                        <p class="text">Якщо коротко - це послуга створена для тих, хто хоче швидко вирішити питання
+                            пошуку житла.<br>
+                            Ми надаємо <strong>персонального помічника</strong>, <strong>таксі</strong> за наш рахунок,
+                            проводимо <strong>онлайн-перегляд</strong>, проводимо переговори, торгуємось за Вас.<br>
+                            В кінці <strong>перевіряємо документи</strong> власника та супроводжуємо у створенні
+                            договору.<br>
                             <strong>Персональний підбір</strong> - це прекрасний вибір, для тих хто цінує свій час!<br>
                         </p>
                     </div> <!-- section title -->
@@ -159,7 +163,7 @@
                         <h4 class="title">Lite</h4>
                     </div>
                     <div class="pricing-price">
-                        <span class="price">1000 UAH</span>
+                        <span class="price">від 1000 UAH</span>
                     </div>
                     <div class="pricing-list">
                         <ul class="list">
@@ -170,7 +174,8 @@
                         </ul>
                     </div>
                     <div class="pricing-btn">
-                        <a class="main-btn main-btn-2" href="#">Замовити <strong>Lite</strong></a>
+                        <a class="main-btn main-btn-2" data-toggle="modal" data-target="#lite" onclick="$('#order').val('Lite')">Замовити
+                            <strong>Lite</strong></a>
                     </div>
                 </div> <!-- single pricing -->
             </div>
@@ -181,10 +186,10 @@
                         <img src="assets/images/price-shape.png" alt="">
                     </div>
                     <div class="pricing-title">
-                        <h4 class="title">Full</h4>
+                        <h4 class="title">Standart</h4>
                     </div>
                     <div class="pricing-price">
-                        <span class="price">1200 UAH</span>
+                        <span class="price">від 1600 UAH</span>
                     </div>
                     <div class="pricing-list">
                         <ul class="list">
@@ -196,7 +201,7 @@
                         </ul>
                     </div>
                     <div class="pricing-btn">
-                        <a class="main-btn" href="#">Замовити <strong>Full</strong></a>
+                        <a class="main-btn" data-toggle="modal" data-target="#lite" onclick="$('#order').val('Standart')">Замовити <strong>Standart</strong></a>
                     </div>
                 </div> <!-- single pricing -->
             </div>
@@ -210,7 +215,7 @@
                         <h4 class="title">VIP</h4>
                     </div>
                     <div class="pricing-price">
-                        <span class="price-gold">1800 UAH</span>
+                        <span class="price-gold">від 2000 UAH</span>
                     </div>
                     <div class="pricing-list">
                         <ul class="list">
@@ -223,7 +228,7 @@
                         </ul>
                     </div>
                     <div class="pricing-btn">
-                        <a class="gold-btn" href="#">Замовити <strong>VIP</strong></a>
+                        <a class="gold-btn" data-toggle="modal" data-target="#lite" onclick="$('#order').val('VIP')">Замовити <strong>VIP</strong></a>
                     </div>
                 </div> <!-- single pricing -->
             </div>
@@ -237,7 +242,7 @@
                         <h4 class="title">AI</h4>
                     </div>
                     <div class="pricing-price">
-                        <span class="price">200 UAH</span>
+                        <span class="price">400 UAH</span>
                         <p class="text">50 квартир</p>
                     </div>
                     <div class="pricing-list">
@@ -248,7 +253,7 @@
                         </ul>
                     </div>
                     <div class="pricing-btn">
-                        <a class="main-btn" href="#">Замовити <strong>AI</strong></a>
+                        <a class="main-btn" data-toggle="modal" data-target="#lite" onclick="$('#order').val('AI')">Замовити <strong>AI</strong></a>
                     </div>
                 </div> <!-- single pricing -->
             </div>
@@ -256,7 +261,72 @@
         </div> <!-- row -->
     </div> <!-- container -->
 </section>
+<div class="modal fade" id="lite" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Замовлення підбору</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <form id="liteForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Як вас звати?</label>
+                            <input type="text" class="form-control" id="name" placeholder="Іван Іванов">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">Ваш номер телефону?</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="+380999787878">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputCity">В якому місті ви шукаєте житло?</label>
+                            <select id="inputCity" class="form-control">
+                                <option selected>Київ</option>
+                                <option>Львів</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="region">В якому районі?</label>
+                        <input type="text" class="form-control" id="region" placeholder="Деснянський">
+                    </div>
+                    <div class="form-group">
+                        <label for="rooms">Скільки кімнат?</label>
+                        <input type="number" class="form-control" id="rooms" placeholder="1">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="building">Який ремонт?</label>
+                            <select id="building" class="form-control">
+                                <option selected>Євроремонт</option>
+                                <option>Мінімалізм</option>
+                                <option>Будь-який</option>
+                                <option>Класичний</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="peoples">Скільки людей буде проживати?</label>
+                        <input type="number" class="form-control" id="peoples" placeholder="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="money">Який ваш максимальний бюджет?</label>
+                        <input type="number" class="form-control" id="money" placeholder="1">
+                    </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="sendButton" class="main-btn"><strong>Замовити</strong></button>
+            </div>
 
+        </div>
+    </div>
+</div>
 <!--====== PRICING PART ENDS ======-->
 
 <footer id="footer" class="footer-area">
@@ -284,7 +354,8 @@
                         <ul class="social">
                             <li><a href="#"><i class="lni lni-facebook"></i></a></li>
                             <li><a href="https://t.me/rooms_kyiv"><i class="lni lni-telegram-original"></i></a></li>
-                            <li><a href="https://instagram.com/roomsflatsua?igshid=1kttw97bacseq"><i class="lni lni-instagram"></i></a></li>
+                            <li><a href="https://instagram.com/roomsflatsua?igshid=1kttw97bacseq"><i
+                                    class="lni lni-instagram"></i></a></li>
                         </ul>
                     </div> <!-- footer about -->
                 </div>
@@ -323,7 +394,8 @@
                             <li>
                                 <div class="contact-info d-flex">
                                     <div class="info-content media-body">
-                                        <p class="text"><i class="lni lni-phone"></i> <a href="tel:+380979110338">+3800979110338</a></p>
+                                        <p class="text"><i class="lni lni-phone"></i> <a href="tel:+380979110338">+3800979110338</a>
+                                        </p>
                                     </div>
                                 </div> <!-- contact info -->
                             </li>
@@ -357,7 +429,7 @@
                         <div class="copyright-text text-center">
                             <p class="text">РУМС © 2020</p>
                         </div> <!-- copyright text -->
- <!-- copyright privacy -->
+                        <!-- copyright privacy -->
                     </div> <!-- copyright -->
                 </div>
             </div> <!-- row -->
@@ -387,9 +459,32 @@
 
 <!--====== PART ENDS ======-->
 
-
+<input disabled id="order" hidden>
 <!--====== Jquery js ======-->
 <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script>
+
+    $("#sendButton").click(function() {
+        var obj = {
+           order:$("#order").val(), name : $("#name").val(), phone : $("#phone").val(), city: $("#inputCity option:checked").val(), region: $("#region").val(), rooms : $("#rooms").val, money:$("#money").val(), peoples: $("#peoples").val(),  building: $("#building option:checked").val()
+        }
+        $.ajax({
+            url: 'https://hook.integromat.com/916ja0owysdexb6qu0f86wsa4krkx9z7',
+            type: 'POST',
+            data: JSON.stringify(obj),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(msg) {
+                $("#modal-body").append("<div class=\"alert alert-success\">\n" +
+                    "  <strong>Ура!</strong> Ми відповімо Вам якомога швидше!\n" +
+                    "</div>")
+            }
+        });
+        //  <-----------
+
+    })
+</script>
 <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
 
 <!--====== Bootstrap js ======-->
@@ -407,14 +502,16 @@
 
 <!--====== Swiper js ======-->
 <script src="assets/js/swiper.min.js"></script>
-
 <!--====== Scrolling Nav js ======-->
 <script src="assets/js/jquery.easing.min.js"></script>
 <script src="assets/js/scrolling-nav.js"></script>
-
+<script src="assets/js/jquery.steps.js"></script>
 <!--====== Main js ======-->
-<script src="assets/js/main.js"></script>
 
+<script src="assets/js/main.js"></script>
+<script>
+
+</script>
 </body>
 
 </html>
