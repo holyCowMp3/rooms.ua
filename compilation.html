@@ -38,6 +38,7 @@
 
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader.css">
 
 </head>
 
@@ -163,7 +164,7 @@
                         <h4 class="title">Lite</h4>
                     </div>
                     <div class="pricing-price">
-                        <span class="price">від 1000 UAH</span>
+                        <span class="price">від 1500 UAH</span>
                     </div>
                     <div class="pricing-list">
                         <ul class="list">
@@ -189,7 +190,7 @@
                         <h4 class="title">Standart</h4>
                     </div>
                     <div class="pricing-price">
-                        <span class="price">від 1600 UAH</span>
+                        <span class="price">від 1800 UAH</span>
                     </div>
                     <div class="pricing-list">
                         <ul class="list">
@@ -242,7 +243,7 @@
                         <h4 class="title">AI</h4>
                     </div>
                     <div class="pricing-price">
-                        <span class="price">400 UAH</span>
+                        <span class="price">600 UAH</span>
                         <p class="text">50 квартир</p>
                     </div>
                     <div class="pricing-list">
@@ -353,7 +354,7 @@
                         <p class="text">У випадку побажань чи бажання поскаржитися - пишіть нам у соціальні мережі:</p>
                         <ul class="social">
                             <li><a href="#"><i class="lni lni-facebook"></i></a></li>
-                            <li><a href="https://t.me/rooms_kyiv"><i class="lni lni-telegram-original"></i></a></li>
+                            <li><a href="https://t.me/joinchat/AAAAAFDALMyVkWgaKsO4gw"><i class="lni lni-telegram-original"></i></a></li>
                             <li><a href="https://instagram.com/roomsflatsua?igshid=1kttw97bacseq"><i
                                     class="lni lni-instagram"></i></a></li>
                         </ul>
@@ -474,13 +475,24 @@
             data: JSON.stringify(obj),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            async: false,
-            success: function(msg) {
-                $("#modal-body").append("<div class=\"alert alert-success\">\n" +
-                    "  <strong>Ура!</strong> Ми відповімо Вам якомога швидше!\n" +
-                    "</div>")
+            complete: function (msg) {
+                console.log(msg);
+                setTimeout(() => {
+                    $("#modal-body").html("<div class=\"alert alert-success\">\n" +
+                        "  <strong>Ура!</strong> Ми відповімо Вам якомога швидше!\n" +
+                        "</div>")
+                }, 3000)
+
             }
         });
+        let html = "<div class=\"container h-100\">\n" +
+            "  <div class=\"row d-flex justify-content-center\">\n" +
+            "    <form class=\"col-12 text-center\">\n" +
+            "<div class=\"lds-ellipsis\"><div></div><div></div><div></div><div></div></div>" +
+            "    </form>   \n" +
+            "  </div>\n" +
+            "</div>"
+        $("#modal-body").html(html);
         //  <-----------
 
     })
